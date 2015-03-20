@@ -91,7 +91,7 @@
                                                       :http-only true}})
         regular-session (wrap-session f {:cookie-attrs {:http-only true}})]
     (fn [req]
-      (if (https-request? req)
+      (if false #_(https-request? req)
         (secure-session req)
         (regular-session req)))))
 
@@ -117,6 +117,6 @@
       (wrap-params)
       (wrap-multipart-params)
       (wrap-flash)
-      #_(wrap-secure-session)
+      (wrap-secure-session)
       (wrap-resource "public")
       (wrap-file-info)))
