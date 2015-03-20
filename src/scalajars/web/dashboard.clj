@@ -19,7 +19,7 @@
            (str (subs description 0 truncate-length) "...")
            description)]]
       [:div.meta
-        [:span.name "vX.XX by XXX"]
+        [:span.name (str "v" (:version jar-map) " by " (:user jar-map))]
         [:span.download (stats/download-count stats
                                               (:group_name jar-map)
                                               (:jar_name jar-map))]]]))
