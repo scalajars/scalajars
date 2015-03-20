@@ -113,13 +113,16 @@
                 (when-not pom-map
                   [:p.error "Oops. We hit an error opening the metadata POM file for this project "
                    "so some details are not available."])
-                [:h2 "Leiningen"]
+
+                [:h2 "SBT"]
                 [:div.package-config-example
                  [:pre
-                  (tag "[")
-                  (jar-name jar)
-                  [:span.string " \""
-                   (:version jar) "\""] (tag "]") ]]
+                  "libraryDependencies += "
+                  [:span.string \" (:group_name jar) \"]
+                  " % "
+                  [:span.string \" (:jar_name jar) \"]
+                  " % "
+                  [:span.string \" (:version jar) \"]]]
 
                 [:h2 "Gradle"]
                 [:div.package-config-example
