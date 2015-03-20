@@ -22,6 +22,11 @@ h4 {
   margin-bottom: 5px;
 }
 
+.logo {
+  width: 126px;
+  margin-bottom: 20px;
+}
+
 h1 {
   font-size: 2.6em;
   padding: 0;
@@ -33,6 +38,7 @@ h1 {
   color: #fff;
 }
 h1 a, h1 a:hover {
+  display: block;
   color: inherit;
   text-decoration: none;
 }
@@ -207,12 +213,16 @@ footer a {
 }
 .or-repo a {
   color: #fff;
-  background: #ecd244;
+  background: #fbe048;
   border-radius: 2px;
   font-size: 1.4em;
   padding: 0.4em 1.2em;
   text-transform: uppercase;
   font-family: "Oswald";
+}
+.or-repo a:hover {
+  background: #ecd244;
+  text-decoration: none;
 }
 
 .small-header {
@@ -289,12 +299,16 @@ footer a {
 }
 .buttons a {
   color: #fff;
-  background: #817686;
+  background: #988B9E;
   border-radius: 2px;
   font-size: 1.1em;
   padding: 0.3em 2em;
   text-transform: uppercase;
   font-family: "Oswald";
+}
+.buttons a:hover {
+  background: #817686;
+  text-decoration: none;
 }
 
 .push-header {
@@ -381,14 +395,23 @@ footer a {
   background-color: #fbe048;
   color: #fff;
   text-transform: uppercase;
-  border: solid #f4f4f4;
-  border-width: 1px 0;
   text-align: center;
   padding: 0.8em 0;
-  margin: 40px 0;
+  margin: 120px 0 40px 0;
   font-size: 1.4em;
   letter-spacing: 2px;
   font-weight: 600;
+  position: relative;
+}
+.recent-jars-header:before {
+  content: " ";
+  background-image: url("../images/canard2.png");
+  background-size: 91px 78px;
+  position: absolute;
+  left: 600px;
+  top: -70px;
+  width: 91px;
+  height: 78px;
 }
 
 .recent-jars-list {

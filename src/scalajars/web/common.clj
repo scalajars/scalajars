@@ -105,6 +105,7 @@
           [(link-to "/login" "login")
            (link-to "/register" "register")]))]
        [:h1
+        [:img.logo {:src "/images/canard.png"}]
         (link-to "/" "Scalajars")]
        [:blockquote "The one and only duck community repository for scala libraries." ]]
      [:div.search-form-container.col-md-12.col-xs-12.col-lg-12.col-sm-12
