@@ -91,6 +91,12 @@ the latest version.
 If you want all the actual jar files as well you can grab them via
 [rsync](http://github.com/ato/clojars-web/wiki/Data).
 
+Deploy
+------
+
+lein uberjar
+scp target/scalajars-web-0.15.12-SNAPSHOT-standalone.jar root@vm263.zen.local
+
 SSH integration
 ---------------
 

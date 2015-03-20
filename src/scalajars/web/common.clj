@@ -14,7 +14,6 @@
   [:footer.row
    (link-to "/projects" "projects")
    (link-to "https://github.com/scalajars/scalajars" "code")
-   (link-to "/security" "security")
    (link-to "https://github.com/scalajars/scalajars/wiki" "help")])
 
 (defn google-analytics-js []

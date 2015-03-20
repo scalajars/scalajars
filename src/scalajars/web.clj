@@ -46,10 +46,6 @@
   (GET "/projects" {:keys [params]}
        (try-account
         (browse account params)))
-  (GET "/security" []
-       (try-account
-        (html-doc account "Security"
-                  (raw (slurp (io/resource "security.html"))))))
   session/routes
   group/routes
   artifact/routes
