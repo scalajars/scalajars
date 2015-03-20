@@ -40,7 +40,7 @@
      (when title
        (str title " - "))
      "Scalajars"]
-    (include-css "http://fonts.googleapis.com/css?family=Oswald:400,700")
+    (include-css "http://fonts.googleapis.com/css?family=Oswald:400,700%7CRoboto:400,700")
     (map #(include-css (str "/stylesheets/" %))
          ;; Bootstrap was customized to only include the 'grid' styles
          ;; (then the default colors were removed)
@@ -85,7 +85,7 @@
      (when title
        (str title " - "))
      "Scalajars"]
-    (include-css "http://fonts.googleapis.com/css?family=Oswald:400,700")
+    (include-css "http://fonts.googleapis.com/css?family=Oswald:400,700%7CRoboto:400,700")
     (map #(include-css (str "/stylesheets/" %))
          ;; Bootstrap was customized to only include the 'grid' styles
          ;; (then the default colors were removed)

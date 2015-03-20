@@ -377,6 +377,88 @@ footer a {
 /*  white-space: nowrap;*/
 }
 
+.recent-jars-header {
+  background-color: #fbe048;
+  color: #fff;
+  text-transform: uppercase;
+  border: solid #f4f4f4;
+  border-width: 1px 0;
+  text-align: center;
+  padding: 0.8em 0;
+  margin: 40px 0;
+  font-size: 1.4em;
+  letter-spacing: 2px;
+  font-weight: 600;
+}
+
+.recent-jars-list {
+  width: 800px;
+  margin: 0 auto;
+  font-family: Roboto;
+}
+.recent-jar {
+}
+.recent-jar .date {
+  vertical-align: top;
+  height: 80px;
+  width: 25%;
+  display: inline-block;
+  text-align: right;
+  padding-right: 40px;
+  color: #817686;
+}
+.recent-jar .timeline {
+  vertical-align: top;
+  height: 80px;
+  width: 5%;
+  display: inline-block;
+  border-left: 2px dotted #fbe048;
+  position: relative;
+}
+.recent-jar .timeline:after {
+  content: " ";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border: 2px solid #fbe048;
+  border-radius: 40px;
+  left: -8px;
+}
+.recent-jar .infos {
+  vertical-align: top;
+  height: 80px;
+  width: 40%;
+  display: inline-block;
+  overflow: hidden;
+}
+.recent-jar .infos a {
+  color: #38333a;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  line-height: 1.6em;
+}
+.recent-jar .infos .descriptions {
+  color: #817686;
+}
+.recent-jar .meta {
+  vertical-align: top;
+  height: 80px;
+  width: 20%;
+  display: inline-block;
+  color: #817686;
+  text-align: right;
+}
+.recent-jar .meta .name {
+  display: block;
+}
+.recent-jar .meta .download {
+  font-weight: bold;
+  display: block;
+}
+
+
 /* FIXME: clean up these class names so they can be reused */
 .result {
   position: relative;
