@@ -1,38 +1,17 @@
-Clojars web interface
-=====================
+scalajars.org
+=============
 
-This is the source code for the [Clojars](http://clojars.org/) jar
+This is the source code for the [Scalajars](http://scalajars/) jar
 repository webapp.
 
-If you're looking for user documentation, try
-the [wiki](http://github.com/ato/clojars-web/wiki/_pages). There is a
-also a [FAQ](https://github.com/ato/clojars-web/wiki/About).
-
-See [NEWS.md](https://github.com/ato/clojars-web/blob/master/NEWS.md) for recent user-facing changes.
-
-Contributing
-------------
-
-Please report bugs or problems with the repository on the
-[bug tracker](https://github.com/ato/clojars-web/issues).
-
-Design discussions occur on the
-[clojars-maintainers list](http://groups.google.com/group/clojars-maintainers)
-and the #leiningen channel on irc.freenode.org.
-
-If you'd like contribute a change please send a GitHub pull request
-for a topic branch.  Feel free to open a pull request early with a
-"not ready for merging" note or ask on the mailing list or IRC to get
-feedback from other contributors.
-
-We try to make releases fairly soon after merging contributions,
-but post to the mailing list if it's been a week or two and you'd like
-something pushed to the production website.
+It's basically a rip off of the awesome [Clojars](http://clojars.org) website.
+Adapted for scala.
+Because so far we were stuck with maven-central. It had to stop.
 
 Running the webapp
 ------------------
 
-There are several ways to run Clojars depending on what you intend to do with
+There are several ways to run Scalajars depending on what you intend to do with
 it. Regardless of how you run it, you first need to do some setup:
 
 1. Install [Leiningen](http://github.com/technomancy/leiningen)
@@ -54,7 +33,7 @@ To build a standalone jar for deploying to a server:
 
 1. Compile with: `lein uberjar`
 
-2. Run the webapp: `java -jar target/clojars-web-*-standalone.jar`
+2. Run the webapp: `java -jar target/scalajars-web-*-standalone.jar`
 
 To run the application in auto-reload mode, from the console:
 
@@ -64,7 +43,7 @@ and that's it, it should automatically open a browser in [localhost:3000](http:/
 
 If you'd like to run it out of an editor/IDE environment you can
 probably eval a call to the `-main` function in
-`src/clojars/main.clj`.
+`src/scalajars/main.clj`.
 
 Configuration
 -------------
@@ -85,33 +64,13 @@ Clojure map:
      :repo "data/dev_repo"
      :bcrypt-work-factor 12
      :mail {:hostname "localhost"
-            :from "noreply@clojars.org"
+            :from "sre@zengularity.com"
             :ssl false}}
 
 The classpath option can be used with Leiningen 2 profiles.  When
 running out of a source checkout using `lein run` the configuration
 will be read from `dev-resources/config.clj`.  When running automated
 tests with `lein test` then `test-resources/config.clj` is used.
-
-
-Test data
----------
-
-If you'd like to hack on the UI or search it might be useful to have
-production-like metadata.  I've put up a production database dump
-(with password hashes and email addresses stripped of course) which
-you can use like this:
-
-    wget http://meshy.org/~ato/clojars-test-data.sql.gz
-    mkdir -p data
-    rm -f data/dev_db
-    gunzip -c clojars-test-data.sql.gz | sqlite3 data/dev_db
-
-After this you should still run `lein migrate` to update the db schema to
-the latest version.
-
-If you want all the actual jar files as well you can grab them via
-[rsync](http://github.com/ato/clojars-web/wiki/Data).
 
 SSH integration
 ---------------
