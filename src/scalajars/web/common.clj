@@ -179,6 +179,11 @@
 (defn simple-date [s]
   (.format (java.text.SimpleDateFormat. "MMM d, yyyy") s))
 
+(defn days-from-now [date]
+  (let [now (.getTime (java.util.Date.))
+        elapsed (- now date)]
+    (.intValue (/ elapsed (* 1000 60 60 24)))))
+
 (defn page-nav [current-page total-pages]
   (let [previous-text (raw "&#8592; Previous")
         next-text (raw "Next &#8594")

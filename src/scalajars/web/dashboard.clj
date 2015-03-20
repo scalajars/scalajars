@@ -1,5 +1,5 @@
 (ns scalajars.web.dashboard
-  (:require [scalajars.web.common :refer [html-doc html-doc-with-large-header jar-link group-link tag]]
+  (:require [scalajars.web.common :refer [html-doc html-doc-with-large-header jar-link group-link tag days-from-now]]
             [scalajars.db :refer [jars-by-username find-groupnames recent-jars]]
             [scalajars.stats :as stats]
             [hiccup.element :refer [unordered-list link-to]]))
@@ -7,9 +7,10 @@
 (defn recent-jar [jar-map]
   (let [stats (stats/all)
         description (:description jar-map)
-        truncate-length 120]
+        truncate-length 120
+        days-ago (days-from-now (:created jar-map))]
     [:li.recent-jar
-      [:div.date "X days ago"]
+      [:div.date days-ago  " days ago"]
       [:div.timeline]
       [:div.infos
        (jar-link jar-map)
