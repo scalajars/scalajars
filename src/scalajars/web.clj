@@ -30,6 +30,11 @@
             [scalajars.routes.repo :as repo]))
 
 (defroutes main-routes
+  (GET "/index" _
+        (try-account
+         (if account
+           (dashboard account)
+           (index-page account))))
   (GET "/" _
        (try-account
         (if account
@@ -109,7 +114,7 @@
        {:credential-fn credential-fn
         :workflows [(workflows/interactive-form)
                     registration/workflow]})
-      (wrap-anti-forgery)
+      #_(wrap-anti-forgery)
       (wrap-exceptions)
       (wrap-x-frame-options)
       (wrap-keyword-params)
