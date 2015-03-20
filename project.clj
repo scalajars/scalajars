@@ -1,4 +1,4 @@
-(defproject clojars-web "0.15.12-SNAPSHOT"
+(defproject scalajars-web "0.15.12-SNAPSHOT"
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [org.clojure/tools.cli "0.2.1"]
                  [org.apache.maven/maven-model "3.0.4"
@@ -33,8 +33,8 @@
                                   [nailgun-shim "0.0.1"]]
                    :resource-paths ["local-resources"]}}
   :plugins [[lein-ring "0.8.5"]]
-  :aliases {"migrate" ["run" "-m" "clojars.db.migrate"]}
-  :ring {:handler clojars.web/clojars-app}
-  :aot [clojars.scp]
-  :main clojars.main
+  :aliases {"migrate" ["run" "-m" "scalajars.db.migrate"]}
+  :ring {:handler scalajars.web/scalajars-app}
+  :aot [scalajars.scp]
+  :main scalajars.main
   :min-lein-version "2.0.0")
