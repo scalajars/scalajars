@@ -108,7 +108,7 @@
         [arg-opts args banner] (parse-args args env-opts)
         arg-opts (remove-nil-vals arg-opts)
         opts (if-let [f (or (:config-file arg-opts) (:config-file env-opts))]
-               (merge env-opts (parse-file f) arg-opts)
+               (merge env-opts arg-opts (parse-file f))
                (merge env-opts arg-opts))]
     [opts args banner]))
 
