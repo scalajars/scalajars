@@ -30,7 +30,7 @@
             [scalajars.routes.repo :as repo]))
 
 (defroutes main-routes
-  (GET "/index" _
+  (GET "/" _
        (try-account
         (if account
           (dashboard account)
