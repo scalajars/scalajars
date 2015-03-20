@@ -8,27 +8,35 @@
   (let [stats (stats/all)
         description (:description jar-map)
         truncate-length 120]
-    [:li.col-md-4.col-sm-6.col-xs-12.col-lg-4
-     [:div.recent-jar
-      [:h3.recent-jar-title
-       (jar-link jar-map)]
-      [:p.recent-jar-description
-       (if (> (count description) truncate-length)
-         (str (subs description 0 truncate-length) "...")
-         description)]
-      [:p.hint.total-downloads "Downloads: " (stats/download-count stats
-                                                                   (:group_name jar-map)
-                                                                   (:jar_name jar-map))]]]))
+    [:li.recent-jar
+      [:div.date "X days ago"]
+      [:div.timeline]
+      [:div.infos
+       (jar-link jar-map)
+       [:p.descriptions
+         (if (> (count description) truncate-length)
+           (str (subs description 0 truncate-length) "...")
+           description)]]
+      [:div.meta
+        [:span.name "vX.XX by XXX"]
+        [:span.download (stats/download-count stats
+                                              (:group_name jar-map)
+                                              (:jar_name jar-map))]]]))
 
 (defn index-page [account]
   (html-doc-with-large-header account nil
-    [:article.row
-     [:div.push-information.col-md-6.col-lg-6.col-sm-6.col-xs-12
+    [:div.or-repo
+      [:div.or "or"]
+      (link-to "/projects" "Browse the repository")]
+    [:article.push-informations
+     [:div.push-information
       [:h3.push-header "Push with Leiningen"]
       [:div.push-example
        [:pre.push-example-leiningen
-        (tag "$") " lein deploy scalajars\n"]]]
-     [:div.push-information.col-md-6.col-lg-6.col-sm-6.col-xs-12
+        (tag "$") " lein deploy scalajars\n"]
+       [:div.buttons
+        (link-to "https://github.com/scalajars/scalajars/wiki/Tutorial" "View a tutorial")]]]
+     [:div.push-information
       [:h3.push-header "Maven Repository"]
       [:div.push-example
        [:pre

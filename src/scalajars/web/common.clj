@@ -15,12 +15,7 @@
    (link-to "/projects" "projects")
    (link-to "https://github.com/scalajars/scalajars" "code")
    (link-to "/security" "security")
-   (link-to "https://github.com/scalajars/scalajars/wiki" "help")
-   [:div.row.bendyworks
-    "remixed by"
-    (link-to {:target "_blank"}
-             "http://www.bendyworks.com/"
-             (image "/images/bendyworks_logo_white.png" "Bendyworks Inc."))]])
+   (link-to "https://github.com/scalajars/scalajars/wiki" "help")])
 
 (defn google-analytics-js []
   [])
@@ -32,8 +27,6 @@
   ; ga('create', 'UA-51806851-1', 'scalajars');
   ; ga('send', 'pageview');"])
 
-(defn typekit-js []
-  [:script "try{Typekit.load();}catch(e){}"])
 
 (defn html-doc [account title & body]
   (html5
@@ -47,20 +40,19 @@
      (when title
        (str title " - "))
      "Scalajars"]
+    (include-css "http://fonts.googleapis.com/css?family=Oswald:400,700")
     (map #(include-css (str "/stylesheets/" %))
          ;; Bootstrap was customized to only include the 'grid' styles
          ;; (then the default colors were removed)
          ;; more info: http://getbootstrap.com/css/#grid
          ["reset.css" "vendor/bootstrap/bootstrap.css" "screen.css"])
-    (include-js "//use.typekit.net/zhw0tse.js")
-    (typekit-js)
     (raw (when-ie (include-js "/js/html5.js")))]
    [:body.container-fluid
     [:div#content-wrapper
      [:header.small-header.row
       [:div.home.col-md-3.col-sm-3.col-xs-6.col-lg-3
-       (link-to "/" (image "/images/scalajars-logo-tiny.png" "Scalajars"))
-       [:h1 (link-to "/" "Scalajars")]]
+       [:h1 
+        (link-to "/" "Scalajars")]]
       [:div.col-md-3.col-sm-3.col-xs-6.col-lg-3
        [:form {:action "/search"}
         [:input {:type "search"
@@ -93,22 +85,17 @@
      (when title
        (str title " - "))
      "Scalajars"]
+    (include-css "http://fonts.googleapis.com/css?family=Oswald:400,700")
     (map #(include-css (str "/stylesheets/" %))
          ;; Bootstrap was customized to only include the 'grid' styles
          ;; (then the default colors were removed)
          ;; more info: http://getbootstrap.com/css/#grid
          ["reset.css" "vendor/bootstrap/bootstrap.css" "screen.css"])
-    (include-js "//use.typekit.net/zhw0tse.js")
-    [:script "try{Typekit.load();}catch(e){}"]
     (raw (when-ie (include-js "/js/html5.js")))]
    [:body.container-fluid
     [:div.hero.row
      [:header
-      [:div.home.col-md-6.col-sm-6.col-xs-12.col-lg-6
-       (link-to "/" (image "/images/scalajars-logo-small.png" "Scalajars"))
-       [:h1
-        (link-to "/" "Scalajars")]]
-      [:nav.main-navigation.col-md-6.col-sm-6.col-xs-12.col-lg-6
+      [:nav.main-navigation
        (if account
          (unordered-list
           [(link-to "/" "dashboard")
@@ -117,35 +104,18 @@
          (unordered-list
           [(link-to "/login" "login")
            (link-to "/register" "register")]))]
-      [:h2.hero-text.row
-       [:div.col-md-12
-        [:span.heavy "Scalajars"]
-        " is a "
-        [:span.heavy "dead easy"]
-        " community repository for "]
-       [:div.col-md-12
-        " open source Clojure libraries."]]]
+       [:h1
+        (link-to "/" "Scalajars")]
+       [:blockquote "The one and only duck community repository for scala libraries." ]]
      [:div.search-form-container.col-md-12.col-xs-12.col-lg-12.col-sm-12
       [:form {:action "/search"}
        [:input {:type "search"
                 :name "q"
                 :id "search"
-                :placeholder "Search projects..."
+                :placeholder "search projects"
                 :required true}]
-       [:input {:id "search-button"
-                :value "Search"
-                :type "submit"}]]]
-     [:h2.getting-started.row
-      [:div.col-md-12
-       "To get started pushing your own project "
-       (link-to "/register" "register")
-       " and then"]
-      [:div.col-md-12
-       " check out the "
-       (link-to "http://wiki.github.com/ato/scalajars-web/tutorial" "tutorial")
-       ". Alternatively, "
-       (link-to "/projects" "browse the repository")
-       "."]]]
+       ]]
+     ]
     body
     footer]))
 
