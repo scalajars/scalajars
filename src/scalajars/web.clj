@@ -117,6 +117,6 @@
       (wrap-params)
       (wrap-multipart-params)
       (wrap-flash)
-      (wrap-secure-session)
+      #_(wrap-secure-session)
       (wrap-resource "public")
       (wrap-file-info)))
