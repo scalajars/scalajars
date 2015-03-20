@@ -54,7 +54,6 @@
          ["reset.css" "vendor/bootstrap/bootstrap.css" "screen.css"])
     (include-js "//use.typekit.net/zhw0tse.js")
     (typekit-js)
-    (google-analytics-js)
     (raw (when-ie (include-js "/js/html5.js")))]
    [:body.container-fluid
     [:div#content-wrapper
